@@ -14,8 +14,8 @@ namespace Banqsoft__SPA_ReqruitmentTask.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            Loan loan = new Loan(new HousingLoan());
-            return Ok(loan.executeStrategy(5, 10));
+            ILoan loan = new HousingLoan(new FixedRateStrategy());
+            return Ok(loan.GenerateRatesPlan(5, 10));
         }
     }
 }

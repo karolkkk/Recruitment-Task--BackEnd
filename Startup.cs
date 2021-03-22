@@ -27,7 +27,7 @@ namespace Banqsoft__SPA_ReqruitmentTask
         {
             services.AddControllers();
 
-            services.AddScoped<ILoanStrategy, HousingLoan>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

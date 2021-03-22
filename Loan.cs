@@ -5,18 +5,21 @@ using System.Threading.Tasks;
 
 namespace Banqsoft__SPA_ReqruitmentTask
 {
-    public class Loan 
+    public abstract class Loan : ILoan
     {
         private ILoanStrategy strategy;
+        private static decimal interest;
 
         public Loan(ILoanStrategy strategy)
         {
             this.strategy = strategy;
         }
 
-        public decimal executeStrategy(decimal num1, decimal num2)
+        public List<decimal> GenerateRatesPlan(int num1, decimal num2)
         {
-            return strategy.CalculateMonthlyRates(num1,num2);
+            return strategy.GenerateRates(num1, num2);
         }
+
+       
     }
 }

@@ -5,16 +5,12 @@ using System.Threading.Tasks;
 
 namespace Banqsoft__SPA_ReqruitmentTask
 {
-    public class HousingLoan : ILoanStrategy
+    public class HousingLoan : Loan
     {
-        public decimal CalculateMonthlyRates(decimal amount, decimal paybackTime)
-        {
-            throw new NotImplementedException();
-        }
+        private static decimal interest = 0.035m;
 
-        public decimal CalculateWeeklyRates(decimal amount, decimal paybackTime)
+        public HousingLoan(ILoanStrategy strategy) : base(strategy)
         {
-            throw new NotImplementedException();
         }
     }
 }
