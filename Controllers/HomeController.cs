@@ -12,7 +12,7 @@ namespace Banqsoft__SPA_ReqruitmentTask.Controllers
     public class HomeController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Details(int id)
+        public IActionResult Details()
         {
             ILoan loan = new HousingLoan(new FixedRateStrategy());
             return Ok(loan.GenerateRatesPlan(5, 10));

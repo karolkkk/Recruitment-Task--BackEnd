@@ -7,6 +7,6 @@ namespace Banqsoft__SPA_ReqruitmentTask
 {
     public interface ILoanStrategy
     {
-        List<decimal> GenerateRates(int paybackTime, decimal amount);
+        List<decimal> GenerateRates(int paybackTime, decimal amount,decimal ineterest);
     }
 }

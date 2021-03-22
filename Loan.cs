@@ -7,17 +7,17 @@ namespace Banqsoft__SPA_ReqruitmentTask
 {
     public abstract class Loan : ILoan
     {
-        private ILoanStrategy strategy;
-        private static decimal interest;
+        private readonly ILoanStrategy strategy;
+        private static readonly decimal interest;
 
         public Loan(ILoanStrategy strategy)
         {
             this.strategy = strategy;
         }
 
-        public List<decimal> GenerateRatesPlan(int num1, decimal num2)
+        public List<decimal> GenerateRatesPlan(int years, decimal amount)
         {
-            return strategy.GenerateRates(num1, num2);
+            return strategy.GenerateRates(years, amount, interest);
         }
 
        
