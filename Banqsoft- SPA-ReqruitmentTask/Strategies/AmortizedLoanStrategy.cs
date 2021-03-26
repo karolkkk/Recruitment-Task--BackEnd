@@ -63,7 +63,6 @@ namespace Banqsoft__SPA_ReqruitmentTask.Strategies
         /// <summary>
         /// 12 monthly payments per year 
         /// </summary>
-        
         private decimal NumberOfPayments(int paybackTime) 
         {
             decimal numberOfPayments = paybackTime * 12;

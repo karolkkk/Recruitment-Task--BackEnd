@@ -17,8 +17,6 @@ namespace Banqsoft__SPA_ReqruitmentTask.Controllers
         public IActionResult RatesPlan(int paybackTime, decimal amount)
         {
             ILoan loan = new HousingLoan(new FixedRateStrategy());
-            Console.WriteLine(loan.Interest);
-            Console.WriteLine(paybackTime);
             return Ok(loan.GenerateRatesPlan(paybackTime, amount));
         }
         [HttpGet]
@@ -26,8 +24,6 @@ namespace Banqsoft__SPA_ReqruitmentTask.Controllers
         public IActionResult Amortized(int paybackTime, decimal amount)
         {
             ILoan loan = new HousingLoan(new AmortizedLoanStrategy());
-            Console.WriteLine(loan.Interest);
-            Console.WriteLine(paybackTime);
             return Ok(loan.GenerateRatesPlan(paybackTime, amount));
         }
     }
