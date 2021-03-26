@@ -8,16 +8,15 @@ namespace Banqsoft__SPA_ReqruitmentTask
     public abstract class Loan : ILoan
     {
         private readonly ILoanStrategy strategy;
-        private static readonly decimal interest;
-
+        public decimal Interest { get; set; }
         public Loan(ILoanStrategy strategy)
         {
             this.strategy = strategy;
         }
 
-        public List<decimal> GenerateRatesPlan(int years, decimal amount)
+        public List<PaymentModel> GenerateRatesPlan(int years, decimal amount)
         {
-            return strategy.GenerateRates(years, amount, interest);
+            return strategy.GenerateRates(years, amount, Interest);
         }
 
        

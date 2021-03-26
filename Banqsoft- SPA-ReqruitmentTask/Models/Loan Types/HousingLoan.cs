@@ -7,10 +7,10 @@ namespace Banqsoft__SPA_ReqruitmentTask
 {
     public class HousingLoan : Loan
     {
-        private static readonly decimal interest = 0.035m;
 
         public HousingLoan(ILoanStrategy strategy) : base(strategy)
         {
+            Interest = 0.035m;
         }
     }
 }
