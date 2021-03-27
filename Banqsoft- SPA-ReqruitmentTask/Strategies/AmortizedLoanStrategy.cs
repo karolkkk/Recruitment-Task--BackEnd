@@ -27,7 +27,7 @@ namespace Banqsoft__SPA_ReqruitmentTask.Strategies
         {
             decimal remaining = amount;
             List<PaymentModel> monthlyPaymentsList = new List<PaymentModel>();
-            for (int i = 0; i <= numberOfPayments; i++)
+            for (int i = 1; i <= numberOfPayments; i++)
             {
                 decimal thisMonthPrincipal = Principal(remaining, interest, payment);
                 PaymentModel model = new PaymentModel()
@@ -36,8 +36,9 @@ namespace Banqsoft__SPA_ReqruitmentTask.Strategies
                     payment = payment,
                     principal = thisMonthPrincipal,
                     interest = MonthlyInterestPaid(remaining, interest),
-                    balance = remaining - thisMonthPrincipal
+                    balance = remaining > payment ? remaining - thisMonthPrincipal : 0
                 };
+                
                 remaining = remaining - thisMonthPrincipal;
                 monthlyPaymentsList.Add(model);
             }
@@ -53,12 +54,12 @@ namespace Banqsoft__SPA_ReqruitmentTask.Strategies
         {
             decimal monthlyInterestPaid = MonthlyInterestPaid(amount, interest);
             decimal principal = monthlyPayment - monthlyInterestPaid;
-            return principal;
+            return Decimal.Round(principal, 2);
         }
         private decimal MonthlyInterestPaid(decimal amount,decimal interest) 
         {
             decimal monthlyInterestPaid = (amount * interest) / 12;
-            return monthlyInterestPaid;
+            return Decimal.Round(monthlyInterestPaid,2);
         }
         /// <summary>
         /// 12 monthly payments per year 
@@ -76,7 +77,7 @@ namespace Banqsoft__SPA_ReqruitmentTask.Strategies
             decimal denominator = ((decimal)Math.Pow((double)(1 + monthlyInterestRate), (double)numberOfPayments)) - 1;
             decimal fraction = numerator / denominator;
             decimal formula = amount * fraction;
-            return formula;
+            return Decimal.Round(formula,2);
 
 
         }
