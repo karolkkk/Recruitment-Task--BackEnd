@@ -9,11 +9,12 @@ namespace Banqsoft__SPA_ReqruitmentTask.Strategies
     {
         /// <summary>
         /// Calculations based on https://www.vertex42.com/ExcelArticles/amortization-calculation.html 
+        /// Generates monthly payment plan 
         /// </summary>
         /// <param name="paybackTime"></param>
         /// <param name="amount"></param>
         /// <param name="ineterest"></param>
-        /// <returns></returns>
+        /// <returns>List of all the payments generated, based on amortized formula</returns>
         public List<PaymentModel> GenerateRates(int paybackTime, decimal amount, decimal interest)
         { 
             decimal periodicInterestRate = PeriodicInterestRate(interest);
